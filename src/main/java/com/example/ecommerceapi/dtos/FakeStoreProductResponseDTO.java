@@ -1,5 +1,6 @@
 package com.example.ecommerceapi.dtos;
 
+import com.example.ecommerceapi.models.Category;
 import com.example.ecommerceapi.models.Product;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,13 +16,17 @@ public class FakeStoreProductResponseDTO {
     private String category;
 
     public Product toProduct() {
+        Category category = new Category();
+        category.setName(this.category);
+
         Product product = new Product();
         product.setId(this.id);
         product.setName(this.title);
         product.setDescription(this.description);
         product.setPrice(this.price);
         product.setImageUrl(this.image);
-        product.setCategory(this.category);
+        product.setCategory(category);
+
         return product;
     }
 }

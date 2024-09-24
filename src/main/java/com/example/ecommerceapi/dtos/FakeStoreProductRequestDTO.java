@@ -14,12 +14,13 @@ public class FakeStoreProductRequestDTO {
     private String category;
 
     public static FakeStoreProductRequestDTO fromProduct(Product product) {
-        FakeStoreProductRequestDTO createProductFakeStoreImplRequestDTO = new FakeStoreProductRequestDTO();
-        createProductFakeStoreImplRequestDTO.setTitle(product.getName());
-        createProductFakeStoreImplRequestDTO.setDescription(product.getDescription());
-        createProductFakeStoreImplRequestDTO.setPrice(product.getPrice());
-        createProductFakeStoreImplRequestDTO.setImage(product.getImageUrl());
-        createProductFakeStoreImplRequestDTO.setCategory(product.getCategory());
-        return createProductFakeStoreImplRequestDTO;
+        FakeStoreProductRequestDTO fakeStoreProductRequestDTO = new FakeStoreProductRequestDTO();
+        fakeStoreProductRequestDTO.setTitle(product.getName());
+        fakeStoreProductRequestDTO.setDescription(product.getDescription());
+        fakeStoreProductRequestDTO.setPrice(product.getPrice());
+        fakeStoreProductRequestDTO.setImage(product.getImageUrl());
+        fakeStoreProductRequestDTO.setCategory(product.getCategory().getName());
+
+        return fakeStoreProductRequestDTO;
     }
 }

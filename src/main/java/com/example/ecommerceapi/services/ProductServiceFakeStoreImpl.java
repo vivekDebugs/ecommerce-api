@@ -43,8 +43,8 @@ public class ProductServiceFakeStoreImpl implements ProductService {
         return fakeStoreProductDTO.toProduct();
     };
 
-    public Product updateProduct(Product product) {
-        String UPDATE_PRODUCT_ENDPOINT = FAKESTORE_API_ENDPOINT + "/" + product.getId();
+    public Product updateProduct(long productId, Product product) {
+        String UPDATE_PRODUCT_ENDPOINT = FAKESTORE_API_ENDPOINT + "/" + productId;
         FakeStoreProductRequestDTO fakeStoreProductRequestDTO = FakeStoreProductRequestDTO.fromProduct(product);
         HttpEntity<FakeStoreProductRequestDTO> fakeStoreProductUpdateRequestEntity = new HttpEntity<>(fakeStoreProductRequestDTO);
         ResponseEntity<FakeStoreProductResponseDTO> fakeStoreProductUpdateResponseEntity = this.restTemplate.exchange(UPDATE_PRODUCT_ENDPOINT, HttpMethod.PUT, fakeStoreProductUpdateRequestEntity, FakeStoreProductResponseDTO.class);

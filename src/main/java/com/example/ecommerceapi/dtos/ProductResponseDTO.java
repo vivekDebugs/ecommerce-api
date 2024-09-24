@@ -15,13 +15,14 @@ public class ProductResponseDTO {
     private String category;
 
     public static ProductResponseDTO fromProduct(Product product) {
-        ProductResponseDTO productDTO = new ProductResponseDTO();
-        productDTO.id = product.getId();
-        productDTO.name = product.getName();
-        productDTO.description = product.getDescription();
-        productDTO.price = product.getPrice();
-        productDTO.imageUrl = product.getImageUrl();
-        productDTO.category = product.getCategory();
-        return productDTO;
+        ProductResponseDTO productResponseDTO = new ProductResponseDTO();
+        productResponseDTO.id = product.getId();
+        productResponseDTO.name = product.getName();
+        productResponseDTO.description = product.getDescription();
+        productResponseDTO.price = product.getPrice();
+        productResponseDTO.imageUrl = product.getImageUrl();
+        productResponseDTO.category = product.getCategory().getName();
+
+        return productResponseDTO;
     }
 }
