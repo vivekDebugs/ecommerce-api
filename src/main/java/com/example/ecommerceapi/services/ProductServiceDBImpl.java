@@ -27,8 +27,12 @@ public class ProductServiceDBImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts() {
-//      TODO:  ?category=<category.name>
         return productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getAllProductsByCategory(String category) {
+        return productRepository.findByCategory_NativeQuery(category);
     }
 
     @Override

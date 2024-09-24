@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/products")
@@ -29,8 +30,13 @@ public class ProductController {
     }
 
     @GetMapping("")
-    public List<ProductResponseDTO> getAllProducts() {
-        List<Product> listOfProducts = this.productService.getAllProducts();
+    public List<ProductResponseDTO> getAllProducts(@RequestParam("category") Optional<String> categoryOptional) {
+        List<Product> listOfProducts;
+        if (categoryOptional.isEmpty()) {
+            listOfProducts = this.productService.getAllProducts();
+        } else {
+            listOfProducts = this.productService.getAllProductsByCategory(categoryOptional.get());
+        }
         List<ProductResponseDTO> listOfProductResponseDTOs = new ArrayList<>();
         for (Product product: listOfProducts) {
             listOfProductResponseDTOs.add(ProductResponseDTO.fromProduct(product));

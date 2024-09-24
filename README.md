@@ -4,6 +4,7 @@ _Build in progress_
 # TODO
 - [] Handle exceptions properly
 - [] Segregate DTOs
+- [] Implement cascading queries
 
 # References
 - https://spring.io/guides/tutorials/rest
