@@ -20,6 +20,7 @@ public class ProductRequestDTO {
         category.setName(this.category);
 
         Product product = new Product();
+        product.setId(this.id);
         product.setName(this.name);
         product.setDescription(this.description);
         product.setPrice(this.price);
