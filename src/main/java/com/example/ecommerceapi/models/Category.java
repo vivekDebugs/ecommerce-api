@@ -2,6 +2,7 @@ package com.example.ecommerceapi.models;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,9 +16,9 @@ public class Category extends Base {
     private String name;
     private String description;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Product> featuredProducts;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Product> allProducts;
 }
