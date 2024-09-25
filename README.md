@@ -5,6 +5,7 @@ _Build in progress_
 - Handle exceptions properly
 - Segregate DTOs
 - Standardise APIs
+- Fix cascading effects
 
 # References
 - https://spring.io/guides/tutorials/rest
