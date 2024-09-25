@@ -37,20 +37,11 @@ public class ProductServiceDBImpl implements ProductService {
 
     @Override
     public Product createProduct(Product product) {
-        Category category = this.getCategoryForProduct(product);
-        product.setCategory(category);
         return productRepository.save(product);
     }
 
     @Override
     public Product updateProduct(long productId, Product product) {
-        Optional<Product> productOptional = productRepository.findById(productId);
-        if (productOptional.isPresent()) {
-            Category category = this.getCategoryForProduct(product);
-            product.setCategory(category);
-        } else {
-            return null;
-        }
         return productRepository.save(product);
     }
 
@@ -59,19 +50,5 @@ public class ProductServiceDBImpl implements ProductService {
         Product product = productRepository.findById(productId).get();
         productRepository.delete(product);
         return product;
-    }
-
-    private Category getCategoryForProduct(Product product) {
-        Optional<Category> categoryOptional = categoryRepository.findByName(product.getCategory().getName());
-        Category category;
-        if (categoryOptional.isPresent()) {
-            category = categoryOptional.get();
-        } else {
-            Category newCategory = new Category();
-            newCategory.setName(product.getCategory().getName());
-            category = newCategory;
-            categoryRepository.save(category);
-        }
-        return category;
     }
 }
