@@ -10,7 +10,7 @@ import lombok.Setter;
 public class Product extends Base {
     private String name;
     private String description;
-    private double price;
+    private Double price;
 
     @Column(name = "image_url")
     private String imageUrl;

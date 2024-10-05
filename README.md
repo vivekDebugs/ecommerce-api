@@ -7,6 +7,10 @@ _Build in progress_
 - Standardise APIs
 - Fix cascading effects
 
+# APIs to build
+- getProductsFromFakeStore()
+- placeOrder()
+
 # References
 - https://spring.io/guides/tutorials/rest
 - https://docs.spring.io/spring-data/jpa/reference/jpa/query-methods.html

@@ -12,7 +12,7 @@ import java.util.Date;
 public class Base {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -21,5 +21,5 @@ public class Base {
     private Date updatedAt;
 
     @Column(name = "is_deleted")
-    private boolean isDeleted;
+    private Boolean isDeleted;
 }

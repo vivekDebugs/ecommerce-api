@@ -24,7 +24,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public ProductResponseDTO getProduct(@PathVariable long id) {
+    public ProductResponseDTO getProduct(@PathVariable Long id) {
         Product product = this.productService.getProduct(id);
         return ProductResponseDTO.fromProduct(product);
     }
@@ -51,13 +51,13 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
-    public ProductResponseDTO updateProduct(@PathVariable long id, @RequestBody  ProductRequestDTO productRequestDTO) {
+    public ProductResponseDTO updateProduct(@PathVariable Long id, @RequestBody  ProductRequestDTO productRequestDTO) {
         Product product = this.productService.updateProduct(id, productRequestDTO.toProduct());
         return ProductResponseDTO.fromProduct(product);
     }
 
     @DeleteMapping("/{id}")
-    public ProductResponseDTO deleteProduct(@PathVariable long id) {
+    public ProductResponseDTO deleteProduct(@PathVariable Long id) {
         Product product = this.productService.deleteProduct(id);
         return ProductResponseDTO.fromProduct(product);
     }
