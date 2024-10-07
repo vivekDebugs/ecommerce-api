@@ -3,6 +3,8 @@ package com.example.ecommerceapi.services;
 import com.example.ecommerceapi.dtos.FakeStoreProductRequestDTO;
 import com.example.ecommerceapi.dtos.FakeStoreProductResponseDTO;
 import com.example.ecommerceapi.models.Product;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,7 @@ public class ProductServiceFakeStoreImpl implements ProductService {
 
     private RestTemplate restTemplate;
 
-    public ProductServiceFakeStoreImpl(RestTemplate restTemplate) {
+    public ProductServiceFakeStoreImpl(@Qualifier("simpleRestTemplate") RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
